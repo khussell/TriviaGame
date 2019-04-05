@@ -1,0 +1,35 @@
+body{
+    text-align: center;
+    color: white;
+    background-image: url(../images/background2.png);
+    font-size: 30px;
+    line-height: 2;
+}
+
+img{
+    position: absolute;
+    top: 89px;
+    left: 150px;
+    z-index: -2;
+}
+
+.round{
+    height: 190px;
+    width: 190px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    top: 113px;
+    animation-name: eclipse;
+        animation-duration: 8s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+}
+
+
+@keyframes eclipse{
+    from {transform: translate(-100px, 0px);}
+        to {transform: translate(175px, 0px);} 
+}
+

@@ -91,10 +91,6 @@ $("#answer4").on("click", function(){
 
 
 
-
-
-
-
 var trivia={
     displayQuestion: function(){
         if(questionNumber === 5){
@@ -180,19 +176,6 @@ var trivia={
         return ((correct / 5) * 100) + "%"
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
