@@ -1,5 +1,5 @@
 //initialize my variables
-var timeRemaining= 5,
+var timeRemaining= 30,
     correct = 0,
     incorrect = 0,
     unanswered = 0,
@@ -12,30 +12,30 @@ var timeRemaining= 5,
 // with my questions
 var questions={
     q0: {
-        question: "q0",
-        answers: ["a1","a2", "a3", "a4"],
+        question: "How many Earth's could fit inside the sun?",
+        answers: ["one-hundrded","one-thousand", "one-hundred-thousand", "one-million"],
     },
     q1: {
-        question: "q1",
-        answers: ["a1","a2", "a3", "a4"],
+        question: "Light from the sun takes how many minutes to reach Earth?",
+        answers: ["3 minutes","8 minutes", "20 minutes", "36 minutes"],
     },
     q2: {
-        question: "q2",
-        answers:["a1","a2", "a3", "a4"],
+        question: "The sun is mainly made up of two elements: hydrogen and ...",
+        answers:["oxygen","nitrogen", "helium", "fluoride"],
     },
     q3: {
-        question: "q3",
-        answers: ["a1","a2", "a3", "a4"],
+        question: "How many degrees Celsius is the middle of the sun?",
+        answers: ["100,000","500,000", "1 million", "15 million"],
     },
     q4: {
-        question: "q4",
-        answers: ["a1","a2", "a3", "a4"]
+        question: "How much more powerful is the sun's gravity than Earth's?",
+        answers: ["28","18", "8", "0.08"]
     }
 }
 
 
   //variable to store my correct answers
-var correctAnswers= ["", questions.q0.answers[2], questions.q1.answers[1], questions.q2.answers[2], questions.q3.answers[3], questions.q4.answers[0] ]
+var correctAnswers= ["", questions.q0.answers[3], questions.q1.answers[1], questions.q2.answers[2], questions.q3.answers[3], questions.q4.answers[0] ]
 
 $(document).ready(function(){
 
@@ -44,6 +44,8 @@ $(document).ready(function(){
     $("#startButton").on("click", function(){
         $("#startButton").hide()
         $(".endGame").empty()
+        $("#round").addClass("round")
+      
         trivia.displayQuestion()
        
     })
@@ -104,7 +106,7 @@ var trivia={
           correct= 0
           incorrect=0
           unanswered=0
-          timeRemaining= 5
+          timeRemaining= 30
           questionNumber=0
           
         }else{
@@ -168,7 +170,7 @@ var trivia={
     },
 
     resetTime: function(){
-        timeRemaining= 5
+        timeRemaining= 30
         $(".timeRemaining").text(timeRemaining + " seconds")
     },
 
