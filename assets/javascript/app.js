@@ -1,33 +1,34 @@
 //initialize my variables
-var timeRemaining= 0,
+var timeRemaining= 5,
     correct = 0,
     incorrect = 0,
     unanswered = 0,
     //variable to keep track of what question we are on
     questionNumber = 0,
     correctAnswersArray = 1,
-    whatQuestion= "q" + questionNumber
+    whatQuestion= "q" + questionNumber,
+    inter
 
 // with my questions
 var questions={
     q0: {
-        question: "q1",
+        question: "q0",
         answers: ["a1","a2", "a3", "a4"],
     },
     q1: {
-        question: "q2",
+        question: "q1",
         answers: ["a1","a2", "a3", "a4"],
     },
     q2: {
-        question: "q3",
+        question: "q2",
         answers:["a1","a2", "a3", "a4"],
     },
     q3: {
-        question: "q4",
+        question: "q3",
         answers: ["a1","a2", "a3", "a4"],
     },
     q4: {
-        question: "q5",
+        question: "q4",
         answers: ["a1","a2", "a3", "a4"]
     }
 }
@@ -46,8 +47,7 @@ $(document).ready(function(){
     })
 
 
- $("#answer1").on("click", function(){
-     $("#startButton").hide()
+ $("#answer1").on("click", function(){ 
      if($(".answer1").text() === correctAnswers[correctAnswersArray]){
          trivia.correct()
      }else{
@@ -55,8 +55,9 @@ $(document).ready(function(){
      }
  })
 
+
+
  $("#answer2").on("click", function(){
-    $("#startButton").hide()
     if($(".answer2").text() === correctAnswers[correctAnswersArray]){
         trivia.correct()
     }else{
@@ -64,8 +65,9 @@ $(document).ready(function(){
     }
 })
 
+
+
 $("#answer3").on("click", function(){
-    $("#startButton").hide()
     if($(".answer3").text() === correctAnswers[correctAnswersArray]){
         trivia.correct()
     }else{
@@ -73,8 +75,9 @@ $("#answer3").on("click", function(){
     }
 })
 
+
+
 $("#answer4").on("click", function(){
-    $("#startButton").hide()
     if($(".answer4").text() === correctAnswers[correctAnswersArray]){
         trivia.correct()
     }else{
@@ -92,24 +95,69 @@ $("#answer4").on("click", function(){
 
 var trivia={
     displayQuestion: function(){
+        if(questionNumber === 5){
+          $("#startButton").show()
+          $(".question").text("All done, how'd you do?")
+          $(".endGame").append("<p>Correct: " + "</p>")
+          $(".endGame").append("<p>Incorrect: " + "</p>")
+          $(".endGame").append("<p>Unanswered: " + "</p>")
+          $(".endGame").append("<p>Score: " + "</p>")
+        }else{
+        inter = setInterval(trivia.count, 1000)
+        $(".timeRemaining").text(timeRemaining + " seconds")
+        whatQuestion= "q" + questionNumber
         $(".question").text(questions[whatQuestion].question)
+        $(".answers").show()
         $(".answer1").text(questions[whatQuestion].answers[0])
         $(".answer2").text(questions[whatQuestion].answers[1])
         $(".answer3").text(questions[whatQuestion].answers[2])
         $(".answer4").text(questions[whatQuestion].answers[3])
+        }
     },
 
 
     correct: function(){
         $(".answers").hide()
         $(".question").text("Correct!")
-
+        questionNumber+= 1
+        correctAnswersArray ++
+        setTimeout(trivia.displayQuestion, 3000)
     },
 
 
     incorrect: function(){
         $(".answers").hide()
         $(".question").text("Wrong!!!")
+        questionNumber +=1
+        correctAnswersArray++
+        setTimeout(trivia.displayQuestion, 3000)
+    },
+
+    count: function(){
+         timeRemaining--
+         if(timeRemaining === 1){
+            $(".timeRemaining").text(timeRemaining + " second")
+         }else if(timeRemaining === 0){ 
+            $(".timeRemaining").text(timeRemaining + " seconds")
+             clearInterval(inter)
+             trivia.timeOut()
+         }else{
+            $(".timeRemaining").text(timeRemaining + " seconds")
+        }
+    },
+
+    timeOut: function(){
+        $(".answers").hide()
+        $(".question").text("You ran out of time!!!")
+        questionNumber +=1
+        correctAnswersArray++
+        setTimeout(trivia.displayQuestion, 3000)
+        setTimeout(trivia.resetTime, 3000)
+    },
+
+    resetTime: function(){
+        timeRemaining= 5
+        $(".timeRemaining").text(timeRemaining + " seconds")
     }
 }
 
