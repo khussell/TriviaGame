@@ -43,7 +43,9 @@ $(document).ready(function(){
     //start button is pressed it will display first question
     $("#startButton").on("click", function(){
         $("#startButton").hide()
+        $(".endGame").empty()
         trivia.displayQuestion()
+       
     })
 
 
@@ -97,11 +99,18 @@ var trivia={
     displayQuestion: function(){
         if(questionNumber === 5){
           $("#startButton").show()
+          $(".endGame").show()
           $(".question").text("All done, how'd you do?")
-          $(".endGame").append("<p>Correct: " + "</p>")
-          $(".endGame").append("<p>Incorrect: " + "</p>")
-          $(".endGame").append("<p>Unanswered: " + "</p>")
-          $(".endGame").append("<p>Score: " + "</p>")
+          $(".endGame").append("<p>Correct: " + correct + "</p>")
+          $(".endGame").append("<p>Incorrect: " + incorrect + "</p>")
+          $(".endGame").append("<p>Unanswered: " + unanswered +"</p>")
+          $(".endGame").append("<p>Score: " + trivia.score() + "</p>")
+          correct= 0
+          incorrect=0
+          unanswered=0
+          timeRemaining= 5
+          questionNumber=0
+          
         }else{
         inter = setInterval(trivia.count, 1000)
         $(".timeRemaining").text(timeRemaining + " seconds")
@@ -117,20 +126,26 @@ var trivia={
 
 
     correct: function(){
+        clearInterval(inter)
+        correct++
         $(".answers").hide()
         $(".question").text("Correct!")
         questionNumber+= 1
         correctAnswersArray ++
         setTimeout(trivia.displayQuestion, 3000)
+        setTimeout(trivia.resetTime, 3000)
     },
 
 
     incorrect: function(){
+        clearInterval(inter)
+        incorrect++
         $(".answers").hide()
         $(".question").text("Wrong!!!")
         questionNumber +=1
         correctAnswersArray++
         setTimeout(trivia.displayQuestion, 3000)
+        setTimeout(trivia.resetTime, 3000)
     },
 
     count: function(){
@@ -147,6 +162,7 @@ var trivia={
     },
 
     timeOut: function(){
+        unanswered ++
         $(".answers").hide()
         $(".question").text("You ran out of time!!!")
         questionNumber +=1
@@ -158,6 +174,10 @@ var trivia={
     resetTime: function(){
         timeRemaining= 5
         $(".timeRemaining").text(timeRemaining + " seconds")
+    },
+
+    score: function(){
+        return ((correct / 5) * 100) + "%"
     }
 }
 
