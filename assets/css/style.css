@@ -4,6 +4,48 @@ body{
     background-image: url(../images/background2.png);
     font-size: 30px;
     line-height: 2;
+    width: 100%;
+    
+    font-family: 'Averia Sans Libre', cursive;
+    
+}
+
+.head{
+    position: relative;
+    padding: 20px;
+    font-size: 50px;
+    z-index: 2;
+}
+
+.timer{ padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+button{
+    background-color: white;
+    color: orange;
+    padding: 20px;
+    width: 100px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 50px;
+    border: 3px orange solid;
+    text-shadow: 1px 1px black;
+    letter-spacing: 1px;
+
+}
+
+button:hover{
+    background-color: orange;
+    color: white;
+    border: white 3px solid;
+}
+
+.game{
+    position: relative;
+    margin-top: 40px;
+    z-index: 2;
 }
 
 img{
@@ -12,6 +54,38 @@ img{
     left: 150px;
     z-index: -2;
 }
+
+
+.answers{
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+h2{
+    width: 300px;
+    margin: 0 auto;
+}
+
+h2:hover{
+   
+   border: white 3px solid;
+   background-color: orange;
+}
+
+
+
+
+
+
+
+
+
 
 .round{
     height: 188px;
@@ -29,7 +103,40 @@ img{
 
 
 @keyframes eclipse{
-    from {transform: translate(-30px, 0px);}
+    from {transform: translate(-20px, 0px);}
         to {transform: translate(174px, 0px);} 
 }
 
+.roundOn{
+        z-index: 1;
+        height: 188px;
+        width: 190px;
+        border-radius: 50%;
+        background-color: black;
+        position: absolute;
+        top: 114px;
+        left: 174px;
+}
+
+
+
+
+.roundOff{
+    z-index: 1;
+    height: 188px;
+    width: 190px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    top: 114px;
+    animation-name: eclipseOff;
+        animation-duration: 30s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+}
+
+@keyframes eclipseOff{
+    from {transform: translate(0px, 0px);}
+        to {transform: translate(372px, 0px);} 
+}

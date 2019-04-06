@@ -13,7 +13,7 @@ var timeRemaining= 30,
 var questions={
     q0: {
         question: "How many Earth's could fit inside the sun?",
-        answers: ["one-hundrded","one-thousand", "one-hundred-thousand", "one-million"],
+        answers: ["one-hundred","one-thousand", "one-hundred-thousand", "one-million"],
     },
     q1: {
         question: "Light from the sun takes how many minutes to reach Earth?",
@@ -47,6 +47,7 @@ $(document).ready(function(){
         $("#round").addClass("round")
       
         trivia.displayQuestion()
+        
        
     })
 
@@ -111,7 +112,7 @@ var trivia={
           
         }else{
         inter = setInterval(trivia.count, 1000)
-        $(".timeRemaining").text(timeRemaining + " seconds")
+        $(".timeRemaining").text(" " + timeRemaining + " seconds")
         whatQuestion= "q" + questionNumber
         $(".question").text(questions[whatQuestion].question)
         $(".answers").show()
@@ -119,11 +120,16 @@ var trivia={
         $(".answer2").text(questions[whatQuestion].answers[1])
         $(".answer3").text(questions[whatQuestion].answers[2])
         $(".answer4").text(questions[whatQuestion].answers[3])
+        if(questionNumber === 1){
+            $("#round").addClass("roundOff")
+        }
         }
     },
 
 
     correct: function(){
+        $("#round").removeClass("round")
+        $("#round").addClass("roundOn")
         clearInterval(inter)
         correct++
         $(".answers").hide()
@@ -136,6 +142,8 @@ var trivia={
 
 
     incorrect: function(){
+        $("#round").removeClass("round")
+        $("#round").addClass("roundOn")
         clearInterval(inter)
         incorrect++
         $(".answers").hide()
@@ -149,13 +157,13 @@ var trivia={
     count: function(){
          timeRemaining--
          if(timeRemaining === 1){
-            $(".timeRemaining").text(timeRemaining + " second")
+            $(".timeRemaining").text(" " + timeRemaining + " second")
          }else if(timeRemaining === 0){ 
-            $(".timeRemaining").text(timeRemaining + " seconds")
+            $(".timeRemaining").text(" " + timeRemaining + " seconds")
              clearInterval(inter)
              trivia.timeOut()
          }else{
-            $(".timeRemaining").text(timeRemaining + " seconds")
+            $(".timeRemaining").text(" " + timeRemaining + " seconds")
         }
     },
 
@@ -171,7 +179,7 @@ var trivia={
 
     resetTime: function(){
         timeRemaining= 30
-        $(".timeRemaining").text(timeRemaining + " seconds")
+        $(".timeRemaining").text(" " + timeRemaining + " seconds")
     },
 
     score: function(){
