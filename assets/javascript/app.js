@@ -7,7 +7,8 @@ var timeRemaining= 30,
     questionNumber = 0,
     correctAnswersArray = 1,
     whatQuestion= "q" + questionNumber,
-    inter
+    inter,
+    startNumber=0
 
 // with my questions
 var questions={
@@ -47,7 +48,27 @@ $(document).ready(function(){
         $("#startButton").hide()
         $(".endGame").empty()
         $("#round").addClass("round")
-      
+       
+        $("body").removeClass("endBackground")
+        
+        $("body").css("background-color", "black")
+
+        if(startNumber !=0){
+        $("#round").removeClass("roundOn")  
+        $("#round").css("display", "block")  
+        $("#sunImage").animate({
+            zIndex: "-2",
+            top: "89px",
+            width: '240px',
+            height: "240px",
+            marginLeft: "0px",
+            left: "150px"
+       })
+    }
+        $(".question").css("font-weight:", "none")
+        $("body").css("text-shadow", "none")
+        $("a").css("text-shadow", "none")  
+
         trivia.displayQuestion()
         
        
@@ -99,9 +120,21 @@ $("#answer4").on("click", function(){
 var trivia={
     displayQuestion: function(){
         if(questionNumber === 5){
+            startNumber++
+            $("body").removeClass("lightenBody")
+            $("body").addClass("endBackground")
+            $("body").css("color", "white")
+            $("a").css("color", "white") 
+            $("body").css("text-shadow", "2px 2px brown")
+            $("a").css("text-shadow", "2px 2px brown")  
+          
           $("#startButton").show()
+          $("#startButton").text("Start Again")
+          $("#startButton").css("border", "3px brown solid")
+          $("#startButton").css("margin-top", "30px")
           $(".endGame").show()
           $(".question").text("All done, how'd you do?")
+          $(".question").css("font-weight", "bold")
           $(".endGame").append("<p>Correct: " + correct + "</p>")
           $(".endGame").append("<p>Incorrect: " + incorrect + "</p>")
           $(".endGame").append("<p>Unanswered: " + unanswered +"</p>")
@@ -178,7 +211,10 @@ var trivia={
 
     timeOut: function(){
         
-        
+        if(questionNumber === 0){
+            $("#round").removeClass("round")
+            $("#round").addClass("roundOn")  
+        }
         unanswered ++
         $(".answers").hide()
         
@@ -209,6 +245,7 @@ var trivia={
           $('body').addClass("bodyDim")
          
           $("#waves").show()
+          $("#opacityWaves").show()
           $("#opacityWaves").addClass("opacityWaves")
           
       } else if(questionNumber === 3){
@@ -218,6 +255,19 @@ var trivia={
           $("#sunImage").addClass("sunrise")
           $("#opacityWaves").removeClass("opacityWaves")
           $("#opacityWaves").addClass("lightenWaves")
+      } else if(questionNumber === 4){
+          $("#opacityWaves").hide()
+          $("#sunImage").animate({
+              
+              top: "-60px",
+              width: '800px',
+              height: "800px",
+              marginLeft: "220px"
+            })
+          $("body").css("text-shadow", "2px 2px brown")
+          $("a").css("text-shadow", "2px 2px brown")
+          $("#waves").hide()
+
       }
     },
 
@@ -236,6 +286,25 @@ var trivia={
             $("body").removeClass("bodyDim")
             $("body").css("background-color", "black")
             
+        } else if(questionNumber === 3){
+            $("body").removeClass("lightenBody")
+            $("body").css("background-color", "lightskyblue")
+            $("#sunImage").removeClass("sunrise")
+            $("#sunImage").css("top", "89px")
+            $("#opacityWaves").removeClass("lightenWaves")
+            $("#opacityWaves").removeClass("sundownWaves")
+            
+
+        } else if( questionNumber === 4){
+            $("#sunImage").animate({
+              
+                top: "-60px",
+                width: '0px',
+                height: "0px",
+                marginLeft: "320px"
+              })
+            $("body").css("color", "white")
+            $("a").css("color", "white")
         }
     }
 }

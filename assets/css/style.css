@@ -23,6 +23,7 @@ body{
 }
 
 button{
+    position: relative;
     background-color: white;
     color: orange;
     padding: 20px;
@@ -33,6 +34,7 @@ button{
     border: 3px orange solid;
     text-shadow: 1px 1px black;
     letter-spacing: 1px;
+    z-index: 13;
 
 }
 
@@ -52,6 +54,7 @@ button:hover{
     position: absolute;
     top: 89px;
     left: 150px;
+    
     
 }
 
@@ -270,7 +273,7 @@ to {transform: translate(0px, 500px);}
     position: absolute;
     z-index: 10;   
 animation-name: sunrise;
-animation-duration: 45s;
+animation-duration: 35s;
 animation-iteration-count: 1;
 animation-timing-function: ease-in-out;
 animation-fill-mode: forwards;
@@ -291,7 +294,7 @@ to {transform: translate(0px, 0px);}
     width: 100%;
     top: 500px;
     animation: lightenWaves;
-    animation-duration: 40s;
+    animation-duration: 35s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -312,7 +315,7 @@ to {transform: translate(0px, 0px);}
 
   .lightenBody{
     animation: lightenBody;
-    animation-duration: 40s;
+    animation-duration: 35s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -330,3 +333,10 @@ to {transform: translate(0px, 0px);}
   }
 }
 
+
+
+
+.endBackground{
+    background-image: url(../images/sunset.jpg);
+    background-size: cover;
+}
