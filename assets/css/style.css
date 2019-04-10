@@ -1,11 +1,11 @@
 body{
     text-align: center;
     color: white;
-    background-image: url(../images/background2.png);
+    background-color: black;
     font-size: 30px;
     line-height: 2;
     width: 100%;
-    
+    position: relative;
     font-family: 'Averia Sans Libre', cursive;
     
 }
@@ -14,12 +14,12 @@ body{
     position: relative;
     padding: 20px;
     font-size: 50px;
-    z-index: 2;
+    z-index: 20;
 }
 
 .timer{ padding: 10px;
     position: relative;
-    z-index: 2;
+    z-index: 20;
 }
 
 button{
@@ -44,15 +44,15 @@ button:hover{
 
 .game{
     position: relative;
-    margin-top: 40px;
-    z-index: 2;
+    margin-top: 10px;
+    z-index: 20;
 }
 
-img{
+#sunImage{
     position: absolute;
     top: 89px;
     left: 150px;
-    z-index: -2;
+    
 }
 
 
@@ -95,7 +95,7 @@ h2:hover{
     position: absolute;
     top: 114px;
     animation-name: eclipse;
-        animation-duration: 30s;
+        animation-duration: 33s;
         animation-iteration-count: 1;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
@@ -130,7 +130,7 @@ h2:hover{
     position: absolute;
     top: 114px;
     animation-name: eclipseOff;
-        animation-duration: 30s;
+        animation-duration: 55s;
         animation-iteration-count: 1;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
@@ -140,3 +140,99 @@ h2:hover{
     from {transform: translate(0px, 0px);}
         to {transform: translate(372px, 0px);} 
 }
+
+
+
+
+
+
+
+
+
+
+
+.sunset{
+    position: absolute;
+    z-index: 10;   
+animation-name: sunset;
+animation-duration: 45s;
+animation-iteration-count: 1;
+animation-timing-function: ease-in-out;
+animation-fill-mode: forwards;
+}
+
+@keyframes sunset{
+from {transform: translate(0px, 0px);}
+to {transform: translate(0px, 500px);} 
+}
+
+
+
+
+
+
+
+
+
+
+
+#waves{
+    position: absolute;
+    top: 200px;
+    left: -20px;
+    z-index: 11;
+    
+   
+}
+
+.opacityWaves{
+    position: absolute;
+
+   
+    background: black;
+    opacity: .0;
+    z-index: 12;
+    height: 300px;
+    width: 100%;
+    top: 500px;
+    animation: dimWaves;
+    animation-duration: 40s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes dimWaves {
+    
+    0% {
+      opacity:.0;
+    }
+   
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+  .bodyDim{
+      animation: dimBody;
+      animation-duration: 40s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+  }
+
+
+  @keyframes dimBody {
+    
+    0% {
+      background: lightskyblue;
+    }
+   
+    100% {
+      background: black;
+    }
+  }
+
+

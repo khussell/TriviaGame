@@ -37,8 +37,10 @@ var questions={
   //variable to store my correct answers
 var correctAnswers= ["", questions.q0.answers[3], questions.q1.answers[1], questions.q2.answers[2], questions.q3.answers[3], questions.q4.answers[0] ]
 
-$(document).ready(function(){
 
+$("#waves").hide()
+
+$(document).ready(function(){
 
     //start button is pressed it will display first question
     $("#startButton").on("click", function(){
@@ -112,6 +114,7 @@ var trivia={
           
         }else{
         inter = setInterval(trivia.count, 1000)
+        trivia.background()
         $(".timeRemaining").text(" " + timeRemaining + " seconds")
         whatQuestion= "q" + questionNumber
         $(".question").text(questions[whatQuestion].question)
@@ -128,30 +131,33 @@ var trivia={
 
 
     correct: function(){
-        $("#round").removeClass("round")
-        $("#round").addClass("roundOn")
+        trivia.answeredEclipse()
+        questionNumber+= 1
+        
         clearInterval(inter)
         correct++
         $(".answers").hide()
         $(".question").text("Correct!")
-        questionNumber+= 1
+        
         correctAnswersArray ++
         setTimeout(trivia.displayQuestion, 3000)
         setTimeout(trivia.resetTime, 3000)
+        setTimeout(trivia.background, 3000)
     },
 
 
     incorrect: function(){
-        $("#round").removeClass("round")
-        $("#round").addClass("roundOn")
+        trivia.answeredEclipse()
+        
         clearInterval(inter)
         incorrect++
         $(".answers").hide()
-        $(".question").text("Wrong!!!")
+        $(".question").text("Wrong!!! The correct answer is " + correctAnswers[questionNumber+1] + ".")
         questionNumber +=1
         correctAnswersArray++
         setTimeout(trivia.displayQuestion, 3000)
         setTimeout(trivia.resetTime, 3000)
+        setTimeout(trivia.background, 3000)
     },
 
     count: function(){
@@ -168,9 +174,12 @@ var trivia={
     },
 
     timeOut: function(){
+        
+        
         unanswered ++
         $(".answers").hide()
-        $(".question").text("You ran out of time!!!")
+        
+        $(".question").append("<p>").text("You ran out of time!!! The correct answer is " + correctAnswers[questionNumber+1] + ".")
         questionNumber +=1
         correctAnswersArray++
         setTimeout(trivia.displayQuestion, 3000)
@@ -184,11 +193,36 @@ var trivia={
 
     score: function(){
         return ((correct / 5) * 100) + "%"
+    },
+
+    background: function(){
+       if(questionNumber === 2){
+          questionNumber
+          $("#round").removeClass("roundOff")
+          $("#round").hide()
+          $("body").css("backgroundColor", "lightskyblue")
+          $("#sunsetBackground").addClass("backgroundSky")
+          $("#sunImage").addClass("sunset")
+          $('body').addClass("bodyDim")
+         
+          $("#waves").show()
+          $("#opacityWaves").addClass("opacityWaves")
+          
+      } else if(questionNumber === 3){
+          
+      }
+    },
+
+    answeredEclipse: function(){
+        if(questionNumber === 0){
+            $("#round").removeClass("round")
+            $("#round").addClass("roundOn")
+        }else if (questionNumber === 1){
+            $("#round").hide()
+            
+        }
     }
 }
-
-
-
 
 
 
