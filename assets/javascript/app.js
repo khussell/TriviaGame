@@ -314,10 +314,10 @@ var trivia={
         } else if( questionNumber === 4){
             $("#sunImage").animate({
               
-                top: "-60px",
+                top: "-20px",
                 width: '0px',
                 height: "0px",
-                marginLeft: "320px"
+                marginLeft: "220px"
               })
               $("body").removeClass("lightenBody")
               $("body").addClass("endBackground")
