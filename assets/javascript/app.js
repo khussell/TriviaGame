@@ -50,6 +50,7 @@ $(document).ready(function(){
         $("#round").addClass("round")
        
         $("body").removeClass("endBackground")
+        $("body").removeClass("lightenBody")
         
         $("body").css("background-color", "black")
 
@@ -139,6 +140,7 @@ var trivia={
           $(".endGame").append("<p>Incorrect: " + incorrect + "</p>")
           $(".endGame").append("<p>Unanswered: " + unanswered +"</p>")
           $(".endGame").append("<p>Score: " + trivia.score() + "</p>")
+          correctAnswersArray = 1
           correct= 0
           incorrect=0
           unanswered=0
@@ -161,6 +163,16 @@ var trivia={
 
         if(questionNumber === 1){
             $("#round").addClass("roundOff")
+        }else if( questionNumber === 3){
+            $("#sunImage").css("top", "480px")
+        }else if(questionNumber ===4){
+            $("#sunImage").animate({
+                top: "-20px",
+                width: '800px',
+                height: "800px",
+                marginLeft: "220px"
+               
+              })
         }
         }
     },
@@ -258,6 +270,7 @@ var trivia={
 
       } else if(questionNumber === 4){
           $("#opacityWaves").hide()
+          $("#sunImage").removeClass("sunrise")
           $("#sunImage").animate({
               
               top: "-20px",
@@ -295,6 +308,7 @@ var trivia={
             $("#sunImage").css("top", "89px")
             $("#opacityWaves").removeClass("lightenWaves")
             $("#opacityWaves").removeClass("sundownWaves")
+            
             
 
         } else if( questionNumber === 4){
