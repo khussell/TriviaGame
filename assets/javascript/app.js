@@ -53,6 +53,7 @@ $(document).ready(function(){
         $("body").removeClass("lightenBody")
         
         $("body").css("background-color", "black")
+        $("#opacityWaves").removeClass("lightenWaves")
 
         if(startNumber !=0){
         $("#round").removeClass("roundOn")  
