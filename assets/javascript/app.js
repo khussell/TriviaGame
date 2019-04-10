@@ -13,7 +13,7 @@ var timeRemaining= 30,
 // with my questions
 var questions={
     q0: {
-        question: "How many Earth's could fit inside the sun?",
+        question: "How many Earths could fit inside the sun?",
         answers: ["one-hundred","one-thousand", "one-hundred-thousand", "one-million"],
     },
     q1: {
@@ -255,11 +255,12 @@ var trivia={
           $("#sunImage").addClass("sunrise")
           $("#opacityWaves").removeClass("opacityWaves")
           $("#opacityWaves").addClass("lightenWaves")
+
       } else if(questionNumber === 4){
           $("#opacityWaves").hide()
           $("#sunImage").animate({
               
-              top: "-60px",
+              top: "-20px",
               width: '800px',
               height: "800px",
               marginLeft: "220px"
@@ -280,7 +281,8 @@ var trivia={
             
         }else if(questionNumber ===2){
             $("#sunImage").removeClass("sunset")
-            $("#sunImage").css("top", "500px")
+            
+            $("#sunImage").css("top", "480px")
             $("#opacityWaves").removeClass("opacityWaves")
             $("#opacityWaves").addClass("sundownWaves")
             $("body").removeClass("bodyDim")
@@ -303,8 +305,8 @@ var trivia={
                 height: "0px",
                 marginLeft: "320px"
               })
-            $("body").css("color", "white")
-            $("a").css("color", "white")
+              $("body").removeClass("lightenBody")
+              $("body").addClass("endBackground")
         }
     }
 }
