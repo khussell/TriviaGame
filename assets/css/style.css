@@ -236,3 +236,97 @@ to {transform: translate(0px, 500px);}
   }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+  /* sunrise*/
+.bodySundown{
+    background-color: black;
+}
+
+.sundownWaves{
+    position: absolute;
+
+   
+    background: black;
+    opacity: 1;
+    z-index: 12;
+    height: 300px;
+    width: 100%;
+    top: 500px;
+
+}
+
+  .sunrise{
+    position: absolute;
+    z-index: 10;   
+animation-name: sunrise;
+animation-duration: 45s;
+animation-iteration-count: 1;
+animation-timing-function: ease-in-out;
+animation-fill-mode: forwards;
+}
+
+@keyframes sunrise{
+from {transform: translate(0px, 500px);}
+to {transform: translate(0px, 0px);} 
+}
+
+
+.lightenWaves{
+    position: absolute; 
+    background: black;
+    opacity: 1;
+    z-index: 12;
+    height: 300px;
+    width: 100%;
+    top: 500px;
+    animation: lightenWaves;
+    animation-duration: 40s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes lightenWaves {
+    
+    0% {
+      opacity: 1;
+    }
+   
+    100% {
+      opacity: .0;
+    }
+  }
+
+
+  .lightenBody{
+    animation: lightenBody;
+    animation-duration: 40s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes lightenBody {
+  
+  0% {
+    background: black;
+  }
+ 
+  100% {
+    background: lightskyblue;
+  }
+}
+

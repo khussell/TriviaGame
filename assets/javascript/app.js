@@ -113,8 +113,9 @@ var trivia={
           questionNumber=0
           
         }else{
-        inter = setInterval(trivia.count, 1000)
-        trivia.background()
+            inter = setInterval(trivia.count, 1000)
+
+        
         $(".timeRemaining").text(" " + timeRemaining + " seconds")
         whatQuestion= "q" + questionNumber
         $(".question").text(questions[whatQuestion].question)
@@ -123,6 +124,8 @@ var trivia={
         $(".answer2").text(questions[whatQuestion].answers[1])
         $(".answer3").text(questions[whatQuestion].answers[2])
         $(".answer4").text(questions[whatQuestion].answers[3])
+        trivia.background()
+
         if(questionNumber === 1){
             $("#round").addClass("roundOff")
         }
@@ -131,7 +134,7 @@ var trivia={
 
 
     correct: function(){
-        trivia.answeredEclipse()
+        trivia.answered()
         questionNumber+= 1
         
         clearInterval(inter)
@@ -147,7 +150,7 @@ var trivia={
 
 
     incorrect: function(){
-        trivia.answeredEclipse()
+        trivia.answered()
         
         clearInterval(inter)
         incorrect++
@@ -197,7 +200,7 @@ var trivia={
 
     background: function(){
        if(questionNumber === 2){
-          questionNumber
+          
           $("#round").removeClass("roundOff")
           $("#round").hide()
           $("body").css("backgroundColor", "lightskyblue")
@@ -209,16 +212,29 @@ var trivia={
           $("#opacityWaves").addClass("opacityWaves")
           
       } else if(questionNumber === 3){
-          
+        $("body").removeClass("bodyDim")
+          $("body").addClass("lightenBody")
+          $("#sunImage").removeClass("sunset")
+          $("#sunImage").addClass("sunrise")
+          $("#opacityWaves").removeClass("opacityWaves")
+          $("#opacityWaves").addClass("lightenWaves")
       }
     },
 
-    answeredEclipse: function(){
+    answered: function(){
         if(questionNumber === 0){
             $("#round").removeClass("round")
             $("#round").addClass("roundOn")
-        }else if (questionNumber === 1){
+        }else if(questionNumber === 1){
             $("#round").hide()
+            
+        }else if(questionNumber ===2){
+            $("#sunImage").removeClass("sunset")
+            $("#sunImage").css("top", "500px")
+            $("#opacityWaves").removeClass("opacityWaves")
+            $("#opacityWaves").addClass("sundownWaves")
+            $("body").removeClass("bodyDim")
+            $("body").css("background-color", "black")
             
         }
     }
