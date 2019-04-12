@@ -6,8 +6,7 @@ body{
     line-height: 2;
     width: 100%;
     position: relative;
-    font-family: 'Averia Sans Libre', cursive;
-    
+    font-family: 'Averia Sans Libre', cursive;   
 }
 
 .head{
@@ -17,7 +16,8 @@ body{
     z-index: 20;
 }
 
-.timer{ padding: 10px;
+.timer{ 
+    padding: 10px;
     position: relative;
     z-index: 20;
 }
@@ -35,7 +35,6 @@ button{
     text-shadow: 1px 1px black;
     letter-spacing: 1px;
     z-index: 13;
-
 }
 
 button:hover{
@@ -53,9 +52,7 @@ button:hover{
 #sunImage{
     position: absolute;
     top: 89px;
-    left: 150px;
-    
-    
+    left: 150px;    
 }
 
 
@@ -65,6 +62,7 @@ button:hover{
     margin-top: 20px;
     text-align: center;
 }
+
 a{
     text-decoration: none;
     color: white;
@@ -75,8 +73,7 @@ h2{
     margin: 0 auto;
 }
 
-h2:hover{
-   
+h2:hover{   
    border: white 3px solid;
    background-color: orange;
 }
@@ -84,11 +81,7 @@ h2:hover{
 
 
 
-
-
-
-
-
+/*First Animation eclipse on*/
 
 .round{
     height: 188px;
@@ -104,12 +97,13 @@ h2:hover{
         animation-fill-mode: forwards;
 }
 
-
 @keyframes eclipse{
     from {transform: translate(-20px, 0px);}
         to {transform: translate(174px, 0px);} 
 }
 
+
+/*Putting black circle on sun when questioned is answered*/
 .roundOn{
         z-index: 1;
         height: 188px;
@@ -123,7 +117,7 @@ h2:hover{
 
 
 
-
+/*Second animation eclipse off*/
 .roundOff{
     z-index: 1;
     height: 188px;
@@ -148,20 +142,15 @@ h2:hover{
 
 
 
-
-
-
-
-
-
+/*Third animation composed of three: sun setting, background dimming, and waves dimming*/
 .sunset{
     position: absolute;
     z-index: 10;   
-animation-name: sunset;
-animation-duration: 21s;
-animation-iteration-count: 1;
-animation-timing-function: ease-in-out;
-animation-fill-mode: forwards;
+    animation-name: sunset;
+      animation-duration: 21s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
 }
 
 @keyframes sunset{
@@ -171,27 +160,15 @@ to {transform: translate(0px, 500px);}
 
 
 
-
-
-
-
-
-
-
-
 #waves{
     position: absolute;
     top: 200px;
     left: -20px;
-    z-index: 11;
-    
-   
+    z-index: 11;  
 }
 
 .opacityWaves{
     position: absolute;
-
-   
     background: black;
     opacity: .0;
     z-index: 12;
@@ -199,84 +176,58 @@ to {transform: translate(0px, 500px);}
     width: 100%;
     top: 500px;
     animation: dimWaves;
-    animation-duration: 20s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-
-@keyframes dimWaves {
-    
-    0% {
-      opacity:.0;
-    }
-   
-    100% {
-      opacity: 1;
-    }
-  }
-
-
-  .bodyDim{
-      animation: dimBody;
       animation-duration: 20s;
       animation-iteration-count: 1;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards;
+}
+
+
+@keyframes dimWaves {
+    0% {opacity:.0}
+    100% {opacity: 1}
+  }
+
+  .bodyDim{
+      animation: dimBody;
+        animation-duration: 20s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
   }
 
 
   @keyframes dimBody {
-    
-    0% {
-      background: lightskyblue;
-    }
-   
-    100% {
-      background: black;
-    }
+    0% {background: lightskyblue}
+    100% {background: black}
   }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-  /* sunrise*/
+  /* sunrise animation: sun coming up, background brightening, waves brightening*/
 .bodySundown{
     background-color: black;
 }
 
 .sundownWaves{
     position: absolute;
-
-   
     background: black;
     opacity: 1;
     z-index: 12;
     height: 300px;
     width: 100%;
     top: 500px;
-
 }
 
-  .sunrise{
+.sunrise{
     position: absolute;
     z-index: 10;   
-animation-name: sunrise;
-animation-duration: 15s;
-animation-iteration-count: 1;
-animation-timing-function: ease-in-out;
-animation-fill-mode: forwards;
+    animation-name: sunrise;
+      animation-duration: 15s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
 }
 
 @keyframes sunrise{
@@ -294,45 +245,32 @@ to {transform: translate(0px, -380px);}
     width: 100%;
     top: 500px;
     animation: lightenWaves;
-    animation-duration: 13s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+      animation-duration: 13s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
 }
 
 
 @keyframes lightenWaves {
-    
-    0% {
-      opacity: 1;
-    }
-   
-    100% {
-      opacity: .0;
-    }
+    0% {opacity: 1}
+    100% {opacity: .0}
   }
 
 
   .lightenBody{
     animation: lightenBody;
-    animation-duration: 13s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+      animation-duration: 13s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
 }
 
 
 @keyframes lightenBody {
-  
-  0% {
-    background: black;
-  }
- 
-  100% {
-    background: lightskyblue;
-  }
+  0% {background: black}
+  100% {background: lightskyblue}
 }
-
 
 
 
