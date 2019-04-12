@@ -98,7 +98,7 @@ h2:hover{
     position: absolute;
     top: 114px;
     animation-name: eclipse;
-        animation-duration: 33s;
+        animation-duration: 16s;
         animation-iteration-count: 1;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
@@ -133,7 +133,7 @@ h2:hover{
     position: absolute;
     top: 114px;
     animation-name: eclipseOff;
-        animation-duration: 55s;
+        animation-duration: 27s;
         animation-iteration-count: 1;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
@@ -158,7 +158,7 @@ h2:hover{
     position: absolute;
     z-index: 10;   
 animation-name: sunset;
-animation-duration: 45s;
+animation-duration: 21s;
 animation-iteration-count: 1;
 animation-timing-function: ease-in-out;
 animation-fill-mode: forwards;
@@ -199,7 +199,7 @@ to {transform: translate(0px, 500px);}
     width: 100%;
     top: 500px;
     animation: dimWaves;
-    animation-duration: 40s;
+    animation-duration: 20s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -220,7 +220,7 @@ to {transform: translate(0px, 500px);}
 
   .bodyDim{
       animation: dimBody;
-      animation-duration: 40s;
+      animation-duration: 20s;
       animation-iteration-count: 1;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards;
@@ -273,7 +273,7 @@ to {transform: translate(0px, 500px);}
     position: absolute;
     z-index: 10;   
 animation-name: sunrise;
-animation-duration: 35s;
+animation-duration: 15s;
 animation-iteration-count: 1;
 animation-timing-function: ease-in-out;
 animation-fill-mode: forwards;
@@ -294,7 +294,7 @@ to {transform: translate(0px, -380px);}
     width: 100%;
     top: 500px;
     animation: lightenWaves;
-    animation-duration: 35s;
+    animation-duration: 13s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
@@ -315,7 +315,7 @@ to {transform: translate(0px, -380px);}
 
   .lightenBody{
     animation: lightenBody;
-    animation-duration: 35s;
+    animation-duration: 13s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;

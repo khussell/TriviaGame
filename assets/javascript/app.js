@@ -1,5 +1,5 @@
 //initialize my variables
-var timeRemaining= 30,
+var timeRemaining= 15,
     correct = 0,
     incorrect = 0,
     unanswered = 0,
@@ -145,7 +145,7 @@ var trivia={
           correct= 0
           incorrect=0
           unanswered=0
-          timeRemaining= 30
+          timeRemaining= 15
           questionNumber=0
           
         }else{
@@ -239,7 +239,7 @@ var trivia={
     },
 
     resetTime: function(){
-        timeRemaining= 30
+        timeRemaining= 15
         $(".timeRemaining").text(" " + timeRemaining + " seconds")
     },
 
